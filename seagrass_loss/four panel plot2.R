@@ -1,4 +1,4 @@
-
+# four plot panel for conceptual spatial diagrams for enviromental predictors explaining variation in seagrass loss in SBMP
 
 library(ggplot2)
 library(sf)
@@ -100,7 +100,7 @@ streaksP <- ggplot() +
 # of font sizing and possibly legend position
 four_panel <- plot_grid(overP, depthP, streaksP, densityP, labels = "AUTO", ncol = 2, align = 'v')
 
-
+# now view your maps and export
 HotP
 densityP
 depthP
