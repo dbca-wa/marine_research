@@ -15,12 +15,20 @@ output:
   pdf_document: default
 ---
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+```{r setup}
+if (file.exists("~/.Rprofile")) source("~/.Rprofile")
+ckanr::ckanr_setup(url=Sys.getenv("CKAN_URL"), key=Sys.getenv("CKAN_API_KEY"))
+library(magrittr)
+```
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+# Data
+Data is stored on the DBCA data catalogue.
 
-```{r}
-plot(cars)
+```{r load_data}
+csv_rid <- "2f7d9386-d1b2-4841-803c-4720d90bfc76"
+stats <- ckanr::resource_show(csv_rid)$url %>% readr::read_csv(.)
+
+stats %>% DT::datatable(.)
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
