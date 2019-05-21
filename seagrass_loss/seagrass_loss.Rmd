@@ -10,12 +10,12 @@ output:
     toc_float: true
     fig_width: 10
     fig_height: 6
-    code_folding: hide
+    code_folding: show
     theme: lumen
   pdf_document: default
 ---
 
-```{r setup}
+```{r setup, message=F}
 if (file.exists("~/.Rprofile")) source("~/.Rprofile")
 ckanr::ckanr_setup(url=Sys.getenv("CKAN_URL"), key=Sys.getenv("CKAN_API_KEY"))
 library(magrittr)
